@@ -154,6 +154,7 @@ const WORKSPACE_USE_DISTRIBUTED_STDLIB_DEFAULT = nothing
 const LAZY_WORKSPACE_CREATION_DEFAULT = false
 const CAPTURE_STDOUT_DEFAULT = true
 const WORKSPACE_CUSTOM_STARTUP_EXPR_DEFAULT = nothing
+const RUN_DEPENDENT_CELLS_DEFAULT = true
 
 """
     EvaluationOptions([; kwargs...])
@@ -167,6 +168,7 @@ These options are not intended to be changed during normal use.
 - `lazy_workspace_creation::Bool = $LAZY_WORKSPACE_CREATION_DEFAULT`
 - `capture_stdout::Bool = $CAPTURE_STDOUT_DEFAULT`
 - `workspace_custom_startup_expr::Union{Nothing,String} = $WORKSPACE_CUSTOM_STARTUP_EXPR_DEFAULT` An expression to be evaluated in the workspace process before running notebook code. Warning: this will mean that your notebooks are not reproducible.
+- `run_dependent_cells::Bool = $(RUN_DEPENDENT_CELLS_DEFAULT` Whether to automatically run dependent cells after evaluation.
 """
 @option mutable struct EvaluationOptions
     run_notebook_on_load::Bool = RUN_NOTEBOOK_ON_LOAD_DEFAULT
@@ -175,6 +177,7 @@ These options are not intended to be changed during normal use.
     lazy_workspace_creation::Bool = LAZY_WORKSPACE_CREATION_DEFAULT
     capture_stdout::Bool = CAPTURE_STDOUT_DEFAULT
     workspace_custom_startup_expr::Union{Nothing,String} = WORKSPACE_CUSTOM_STARTUP_EXPR_DEFAULT
+    run_dependent_cells::Bool = RUN_DEPENDENT_CELLS_DEFAULT
 end
 
 const COMPILE_DEFAULT = nothing
