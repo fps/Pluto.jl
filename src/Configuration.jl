@@ -317,6 +317,7 @@ function from_flat_kwargs(;
         lazy_workspace_creation::Bool = LAZY_WORKSPACE_CREATION_DEFAULT,
         capture_stdout::Bool = CAPTURE_STDOUT_DEFAULT,
         workspace_custom_startup_expr::Union{Nothing,String} = WORKSPACE_CUSTOM_STARTUP_EXPR_DEFAULT,
+        run_dependent_cells::Bool = RUN_DEPENDENT_CELLS_DEFAULT,
 
         compile::Union{Nothing,String} = COMPILE_DEFAULT,
         pkgimages::Union{Nothing,String} = PKGIMAGES_DEFAULT,
@@ -369,6 +370,7 @@ function from_flat_kwargs(;
         lazy_workspace_creation,
         capture_stdout,
         workspace_custom_startup_expr,
+        run_dependent_cells,
     )
     compiler = CompilerOptions(;
         compile,
